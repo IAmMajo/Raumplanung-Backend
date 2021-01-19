@@ -1,0 +1,15 @@
+{
+  "description": "Das Backend einer Applikation zur Verwaltung der Belegung der Klausurräume des Kaufmännischen Berufskollegs Duisburg-Mitte",
+  "repository": "github:iammajo/raumplanung-backend",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "husky": "^4.3.8",
+    "prettier": "2.2.1",
+    "pretty-quick": "^3.1.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --no-resolve-config --staged"
+    }
+  }
+}
