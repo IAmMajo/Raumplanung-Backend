@@ -1,8 +1,8 @@
 CREATE TABLE `Lehrkraft` (
-`LehrID` INT AUTO_INCREMENT,
+`LehrID` INT AUTO_INCREMENT NOT NULL,
 `Kuerzel` VARCHAR(3) NOT NULL,
 `Passwort` VARCHAR(20),
-`Admin` BOOL,
+`Admin` BOOL NOT NULL,
 `Anrede`VARCHAR(10) NOT NULL,
 `Nachname` VARCHAR(20) NOT NULL,
 PRIMARY KEY (`LehrID`)
@@ -124,7 +124,7 @@ CREATE TABLE `Raum` (
 `Plaetze` INT NOT NULL,
 `Raumname` VARCHAR(10) NOT NULL,
 `Etage` INT NOT NULL,
-`Computer` BOOL,
+`Computer` BOOL NOT NULL,
 PRIMARY KEY (`Raumname`)
 );
 
@@ -144,7 +144,7 @@ CREATE TABLE `Buchung` (
 `Uhrzeit von` TIME NOT NULL,
 `Uhrzeit bis` TIME NOT NULL,
 `Belegt` INT NOT NULL,
-`LehrID` INT,
+`LehrID` INT NOT NULL,
 FOREIGN KEY `fk_Raumname` (`Raumname`) REFERENCES Raum(`Raumname`),
 FOREIGN KEY `fk_Lehrerkuerzel` (`LehrID`) REFERENCES Lehrkraft(`LehrID`)
 );
@@ -154,13 +154,13 @@ CREATE TABLE `Aufsicht` (
 `Datum` DATE NOT NULL,
 `Uhrzeit von` TIME NOT NULL,
 `Uhrzeit bis` TIME NOT NULL,
-`LehrID` INT,
+`LehrID` INT NOT NULL,
 FOREIGN KEY `fk_RaumnameAuf` (`Raumname`) REFERENCES Raum(`Raumname`),
 FOREIGN KEY `fk_LehrerkuerzelAuf` (`LehrID`) REFERENCES Lehrkraft(`LehrID`)
 );
 
 CREATE TABLE `Token` (
-`LehrID` INT,
-`Token` VARCHAR(128),
+`LehrID` INT NOT NULL,
+`Token` VARCHAR(128) NOT NULL,
 FOREIGN KEY `fk_LehrerkuerzelTok` (`LehrID`) REFERENCES Lehrkraft(`LehrID`)
 );
