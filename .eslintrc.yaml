@@ -98,6 +98,7 @@ rules:
   max-params: error
   max-statements: error
   multiline-comment-style: error
+  new-cap: error
   no-array-constructor: error
   no-bitwise: error
   no-continue: error
