@@ -1,7 +1,7 @@
 CREATE TABLE `Lehrkraft` (
 `LehrID` INT AUTO_INCREMENT NOT NULL,
 `Kuerzel` VARCHAR(3) NOT NULL,
-`Passwort` VARCHAR(20),
+`Passwort` VARCHAR(20) NOT NULL,
 `Admin` BOOL NOT NULL,
 `Anrede`VARCHAR(10) NOT NULL,
 `Nachname` VARCHAR(20) NOT NULL,
