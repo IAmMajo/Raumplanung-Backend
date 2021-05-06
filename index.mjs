@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from "fs";
 import { createConnection } from "mysql";
 import express from "express";
+import sessions from "./routes/sessions.mjs";
 
 const EXIT_CODE_NO_SETTINGS = 1;
 
@@ -14,6 +15,7 @@ if (existsSync("settings.json")) {
     }
     const app = express();
     app.use(express.json());
+    app.use("/sessions", sessions);
     app.listen(settings.port, () =>
       process.stdout.write(
         "Raumplanung Backend wurde mit den folgenden Einstellungen" +
